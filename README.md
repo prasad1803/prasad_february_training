@@ -1,34 +1,34 @@
-# TeleConnect ML Assignment Solution
+# TeleConnect ML Assignment
+End-to-end supervised learning project for telecom churn prediction and monthly revenue forecasting, including interpretability and business recommendations.
+This repository is organized to match the assignment submission structure and supports EDA, preprocessing, classification, regression, and SHAP/PDP interpretation workflows.
 
-## Task 5 Implemented: Model Interpretation & Business Recommendations
+## Dataset
+- Source: Telco Customer Churn (Kaggle)  
+  https://www.kaggle.com/datasets/blastchar/telco-customer-churn
+- Contains ~7,043 customer records with demographic, service, contract, billing, churn labels, and charge fields.
 
-This script now focuses on interpreting the best churn classification model and generating business-facing recommendations.
-
-## What is included
-- Trains a best-practice churn classifier (Random Forest) on engineered Telco features.
-- Uses **SHAP** for:
-  - Global feature importance (summary plot)
-  - Local explanations for 2 customers (1 churned, 1 retained)
-- Builds **Partial Dependence Plots (PDP)** for top 3 SHAP-ranked features.
-- Produces business evidence files to answer:
-  1. Top churn drivers
-  2. Highest-risk segments
-  3. Intervention targeting list (top 100)
-  4. ROI of model-based targeting vs random targeting
-
-## Run
-1. Ensure `WA_Fn-UseC_-Telco-Customer-Churn.csv` is in repo root.
-2. Install dependencies if needed (`shap`, `scikit-learn`, `pandas`, `numpy`, `matplotlib`, `seaborn`).
-3. Execute:
+## Installation & Setup
 ```bash
-python teleconnect_churn_ml_pipeline.py
+git clone https://github.com/your-username/teleconnect-ml-assignment.git
+cd teleconnect-ml-assignment
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 
-## Key outputs
-- `outputs/classification_scored_test_set.csv`
-- `outputs/shap_local_explanations_two_cases.csv`
-- `outputs/high_risk_segments.csv`
-- `outputs/top_100_intervention_targets.csv`
-- `outputs/roi_model_vs_random.csv`
-- `outputs/plots/shap_summary_best_classifier.png`
-- `outputs/plots/pdp_top3_features.png`
+## Repository Structure
+- `data/` raw + processed data folders and dataset notes
+- `notebooks/` assignment-stage notebooks (EDA to interpretation)
+- `src/` reusable pipeline modules
+- `models/` saved trained artifacts
+- `reports/` markdown results and figures
+- `tests/` unit tests for preprocessing and evaluation helpers
+
+## Quick Run
+Place `WA_Fn-UseC_-Telco-Customer-Churn.csv` in `data/raw/` (or repo root for legacy scripts), then run your chosen notebook/script workflow.
+
+## Current outputs from interpretation workflow
+- SHAP summary and local explanations
+- PDP plots for top features
+- High-risk segments and top-100 intervention targets
+- ROI comparison: model targeting vs random targeting
